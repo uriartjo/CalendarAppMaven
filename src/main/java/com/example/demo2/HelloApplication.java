@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 public class HelloApplication extends Application {
     @Override
@@ -18,6 +20,18 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+        readCal();
         launch();
+
+    }
+
+    public static void readCal() {
+        try {
+            CalendarQuickstart.readCalendar();
+        } catch (IOException e) {
+            System.out.println("oh no");
+        } catch (GeneralSecurityException e) {
+            System.out.println("oh no 2");
+        }
     }
 }
